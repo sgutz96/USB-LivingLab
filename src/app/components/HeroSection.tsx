@@ -1,80 +1,82 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronLeft, ChevronRight, Radio } from "lucide-react";
-import { useYouTubeLiveStatus } from "../../hooks/useYouTubeLiveStatus";
-import heroMessages from "../../data/hero-messages.json";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const { isLive, loading } = useYouTubeLiveStatus();
+
+  const slides = [
+    {
+      title: "Diseñamos experiencias digitales que conectan",
+      subtitle:
+        "UX, desarrollo y gamedev para construir productos interactivos con impacto real.",
+      image:
+        "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070",
+    },
+    {
+      title: "Transformamos ideas en experiencias",
+      subtitle:
+        "Interfaces, sistemas y narrativas que mejoran la relación entre usuarios y tecnología.",
+      image:
+        "https://images.unsplash.com/photo-1492724441997-5dc865305da7?q=80&w=2070",
+    },
+    {
+      title: "Tecnología, diseño y narrativa",
+      subtitle:
+        "Unimos creatividad y código para construir productos digitales memorables.",
+      image:
+        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2070",
+    },
+  ];
 
   useEffect(() => {
     if (isHovered) return;
 
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroMessages.length);
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 6000);
 
     return () => clearInterval(interval);
   }, [isHovered]);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % heroMessages.length);
-  };
+  const nextSlide = () =>
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
 
-  const prevSlide = () => {
-    setCurrentSlide(
-      (prev) => (prev - 1 + heroMessages.length) % heroMessages.length
-    );
-  };
+  const prevSlide = () =>
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
     <section
-      id="hero"
-      className="relative h-screen flex items-center justify-center overflow-hidden bg-background text-foreground"
+      className="relative h-screen flex items-center justify-center overflow-hidden bg-background"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* 🌌 Imagen fallback */}
-      <img
-        src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
-        className="absolute inset-0 w-full h-full object-cover opacity-20"
-      />
+      {/* 🖼️ IMAGEN DINÁMICA */}
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={currentSlide}
+          src={slides[currentSlide].image}
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 0.25, scale: 1 }}
+          exit={{ opacity: 0, scale: 1.02 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </AnimatePresence>
 
-      {/* 🎥 Video */}
-      <div className="absolute inset-0 opacity-20">
-        <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-          <source
-            src="https://cdn.coverr.co/videos/coverr-abstract-digital-background-5176/1080p.mp4"
-            type="video/mp4"
-          />
-        </video>
-      </div>
+      {/* 🌑 OVERLAY PARA LEGIBILIDAD */}
+      <div className="absolute inset-0 bg-background/50" />
 
-      {/* 🌈 Gradientes (token-driven) */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,var(--color-primary)/20,transparent_40%),radial-gradient(circle_at_80%_70%,var(--color-accent)/20,transparent_40%)]" />
+      {/* 🌈 GRADIENTE SISTEMA */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,var(--color-primary)/15,transparent_40%),radial-gradient(circle_at_80%_70%,var(--color-accent)/15,transparent_40%)]" />
 
-      {/* ✨ Glow */}
-      <div className="absolute w-[600px] h-[600px] bg-[var(--color-accent)]/20 blur-[120px] rounded-full" />
+      {/* ✨ GLOW */}
+      <div className="absolute w-[500px] h-[500px] bg-primary/20 blur-[120px] rounded-full" />
 
-      {/* 🧊 Contenedor */}
-      <div className="relative z-10 max-w-5xl w-full mx-auto px-6 text-center">
-        <div className="bg-card/30 backdrop-blur-xl border border-border rounded-3xl p-10 shadow-lg">
-          
-          {/* 🔴 LIVE */}
-          {!loading && isLive && (
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-destructive/20 border border-destructive/40"
-            >
-              <Radio className="w-4 h-4 text-destructive animate-pulse" />
-              <span className="text-sm text-destructive font-medium">
-                EN VIVO
-              </span>
-            </motion.div>
-          )}
+      {/* 🧊 CONTENIDO */}
+      <div className="relative z-10 max-w-4xl w-full px-6 text-center">
+        <div className="bg-card/40 backdrop-blur-xl border border-border rounded-3xl p-10 shadow-xl">
 
           {/* 🧠 TEXTO */}
           <AnimatePresence mode="wait">
@@ -83,16 +85,16 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -40 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
             >
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-                <span className="bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-accent)] to-[var(--color-secondary)] bg-clip-text text-transparent">
-                  {heroMessages[currentSlide].text}
+              <h1 className="text-4xl sm:text-6xl font-semibold mb-6 leading-tight">
+                <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+                  {slides[currentSlide].title}
                 </span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
-                {heroMessages[currentSlide].subtext}
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                {slides[currentSlide].subtitle}
               </p>
             </motion.div>
           </AnimatePresence>
@@ -100,61 +102,44 @@ export const HeroSection = () => {
           {/* 🚀 CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
             <motion.button
-              whileHover={{ scale: 1.08 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold shadow-md"
-              onClick={() => {
-                document.querySelector("#about")?.scrollIntoView({
-                  behavior: "smooth",
-                });
-              }}
+              whileHover={{ scale: 1.05 }}
+              className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium"
             >
-              Explorar proyectos
+              Ver proyectos
             </motion.button>
 
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 rounded-full border border-border bg-transparent hover:bg-muted transition"
+              whileHover={{ scale: 1.03 }}
+              className="px-8 py-4 rounded-full border border-border bg-background/60 backdrop-blur"
             >
-              Ver demo
+              Cómo trabajamos
             </motion.button>
           </div>
 
-          {/* 🎛️ Controles */}
-          <div className="flex items-center justify-center gap-4 mt-10">
-            <button
-              onClick={prevSlide}
-              className="p-2 rounded-full bg-muted hover:bg-muted/80 transition"
-            >
+          {/* ⏳ PROGRESS */}
+          <div className="mt-8 w-full h-[2px] bg-border rounded-full overflow-hidden">
+            <motion.div
+              key={currentSlide}
+              initial={{ width: 0 }}
+              animate={{ width: "100%" }}
+              transition={{ duration: 6, ease: "linear" }}
+              className="h-full bg-accent"
+            />
+          </div>
+
+          {/* 🎛️ CONTROLES */}
+          <div className="flex items-center justify-center gap-6 mt-6">
+            <button onClick={prevSlide}>
               <ChevronLeft />
             </button>
-
-            <div className="flex gap-2">
-              {heroMessages.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrentSlide(i)}
-                  className={`h-2 rounded-full transition-all ${
-                    i === currentSlide
-                      ? "w-8 bg-accent"
-                      : "w-2 bg-muted-foreground/30"
-                  }`}
-                />
-              ))}
-            </div>
-
-            <button
-              onClick={nextSlide}
-              className="p-2 rounded-full bg-muted hover:bg-muted/80 transition"
-            >
+            <button onClick={nextSlide}>
               <ChevronRight />
             </button>
           </div>
         </div>
       </div>
 
-      {/* 🖱️ Scroll indicator */}
+      {/* 🖱️ SCROLL */}
       <motion.div className="absolute bottom-8">
         <div className="w-6 h-10 border border-border rounded-full flex justify-center p-2">
           <motion.div

@@ -77,11 +77,11 @@ export const AboutSection = () => {
             </h3>
 
             <p className="text-muted-foreground mb-4 leading-relaxed">
-              Since our inception, we've been at the forefront of technological advancement, bridging the gap between theoretical research and practical applications. Our multidisciplinary approach combines expertise from AI, quantum computing, biotechnology, and more.
+              Since our inception, we've been at the forefront of technological advancement, bridging the gap between theoretical research and practical applications.
             </p>
 
             <p className="text-muted-foreground leading-relaxed">
-              We collaborate with leading institutions, industry partners, and communities worldwide to ensure our innovations create meaningful, lasting impact. Every project we undertake is driven by the goal of solving real-world problems and improving quality of life.
+              We collaborate with leading institutions, industry partners, and communities worldwide to ensure our innovations create meaningful, lasting impact.
             </p>
           </motion.div>
 
@@ -102,40 +102,56 @@ export const AboutSection = () => {
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-accent/20" />
             </div>
 
-            {/* Border decorativo */}
-            <div className="absolute -inset-4 border-2 border-border rounded-2xl -z-10" />
+            <div className="absolute -inset-4 border border-border rounded-2xl -z-10" />
           </motion.div>
         </div>
 
-        {/* 🧱 Features */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-              className="group relative p-8 rounded-2xl bg-card border border-border hover:border-accent/50 transition-all duration-300"
-            >
-              {/* Glow hover */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+        {/* 🌌 FEATURES HÍBRIDO */}
+        <div className="relative mt-10 rounded-3xl overflow-hidden border border-border">
 
-              <div className="relative">
-                <div className="w-14 h-14 mb-6 rounded-xl bg-primary flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <feature.icon className="w-7 h-7 text-primary-foreground" />
+          {/* Imagen suave */}
+          <img
+            src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?q=80&w=1200"
+            className="absolute inset-0 w-full h-full object-cover opacity-10"
+          />
+
+          {/* Base */}
+          <div className="absolute inset-0 bg-muted/60" />
+
+          {/* Gradiente */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10" />
+
+          {/* Contenido */}
+          <div className="relative grid md:grid-cols-3 gap-8 p-10">
+            {features.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+                className="group relative p-8 rounded-2xl bg-background/80 backdrop-blur border border-border hover:border-accent/60 hover:shadow-lg transition-all duration-300"
+              >
+                {/* Glow */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                <div className="relative">
+                  <div className="w-14 h-14 mb-6 rounded-xl bg-primary flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <feature.icon className="w-7 h-7 text-primary-foreground" />
+                  </div>
+
+                  <h4 className="text-xl font-semibold mb-3">
+                    {feature.title}
+                  </h4>
+
+                  <p className="text-muted-foreground leading-relaxed text-sm">
+                    {feature.description}
+                  </p>
                 </div>
-
-                <h4 className="text-xl font-bold mb-3">
-                  {feature.title}
-                </h4>
-
-                <p className="text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
+
       </div>
     </section>
   );
