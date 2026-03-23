@@ -1,0 +1,55 @@
+[
+  {
+    "id": 1,
+    "title": "Bienestar Integral",
+    "ods": "ODS 3",
+    "color": "#04BFBF",
+    "image": "https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=1200",
+    "description": "Abordamos la salud mental, el bienestar emocional y los entornos seguros desde un enfoque interdisciplinar.",
+    "problems": [
+      "Salud mental en jóvenes",
+      "Violencia de género",
+      "Entornos psicosociales inseguros",
+      "Falta de atención a víctimas"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Educación y Desarrollo",
+    "ods": "ODS 4",
+    "color": "#F2911B",
+    "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200",
+    "description": "Transformamos la educación mediante tecnología, creatividad y aprendizaje experiencial.",
+    "problems": [
+      "Brecha digital",
+      "Acceso desigual a educación",
+      "Falta de innovación pedagógica"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Ciudades Sostenibles",
+    "ods": "ODS 11",
+    "color": "#04BFBF",
+    "image": "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?q=80&w=1200",
+    "description": "Desarrollamos soluciones para movilidad, sostenibilidad y urbanismo inteligente.",
+    "problems": [
+      "Movilidad urbana",
+      "Contaminación",
+      "Infraestructura desigual"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Innovación Productiva",
+    "ods": "ODS 9",
+    "color": "#F2911B",
+    "image": "https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?q=80&w=1200",
+    "description": "Impulsamos el desarrollo tecnológico y la innovación en sectores productivos.",
+    "problems": [
+      "Baja digitalización",
+      "Falta de innovación empresarial",
+      "Procesos ineficientes"
+    ]
+  }
+]

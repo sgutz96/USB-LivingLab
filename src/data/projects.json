@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "Neural Network Optimizer",
+    "description": "Advanced deep learning framework with automated hyperparameter tuning and model optimization.",
+    "tags": ["AI", "Machine Learning", "Python"],
+    "link": "#",
+    "university": "MIT",
+    "image": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80"
+  },
+  {
+    "id": 2,
+    "title": "Quantum Encryption Protocol",
+    "description": "Unbreakable encryption system using quantum key distribution for ultra-secure communications.",
+    "tags": ["Quantum", "Security", "Cryptography"],
+    "link": "#",
+    "university": "Stanford",
+    "image": "https://images.unsplash.com/photo-1639322537228-f710d846310a?w=800&q=80"
+  },
+  {
+    "id": 3,
+    "title": "Smart City Platform",
+    "description": "IoT-based urban management system for traffic, energy, and environmental monitoring.",
+    "tags": ["IoT", "Smart Cities", "Cloud"],
+    "link": "#",
+    "university": "UC Berkeley",
+    "image": "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800&q=80"
+  },
+  {
+    "id": 4,
+    "title": "DeFi Trading Platform",
+    "description": "Decentralized finance application with automated market making and liquidity pools.",
+    "tags": ["Blockchain", "DeFi", "Web3"],
+    "link": "#",
+    "university": "Harvard",
+    "image": "https://images.unsplash.com/photo-1642790551116-18e150f248e8?w=800&q=80"
+  },
+  {
+    "id": 5,
+    "title": "Medical Diagnosis AI",
+    "description": "Computer vision system for early disease detection from medical imaging data.",
+    "tags": ["Healthcare", "AI", "Computer Vision"],
+    "link": "#",
+    "university": "Johns Hopkins",
+    "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80"
+  },
+  {
+    "id": 6,
+    "title": "Climate Prediction Model",
+    "description": "Advanced machine learning model for accurate long-term climate forecasting and analysis.",
+    "tags": ["Climate", "ML", "Data Science"],
+    "link": "#",
+    "university": "Oxford",
+    "image": "https://images.unsplash.com/photo-1569163139394-de4798aa62b4?w=800&q=80"
+  }
+]

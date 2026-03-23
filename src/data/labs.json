@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "name": "Laboratorio de Grabación Digital",
+    "description": "Espacio especializado en la producción de audio completamente en entorno digital. Equipado con interfaces de audio profesionales y software de producción, edición y mezcla para proyectos musicales, locución, doblaje y diseño sonoro.",
+    "image": "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80"
+  },
+  {
+    "id": 2,
+    "name": "Laboratorio de Innovación Digital",
+    "description": "Espacio de alta tecnología con pantalla verde, traje de captura óptico y gafas de realidad virtual para el desarrollo de experiencias inmersivas, simulaciones interactivas y contenidos multimedia.",
+    "image": "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80"
+  },
+  {
+    "id": 3,
+    "name": "Laboratorio de Grabación Híbrida",
+    "description": "Instalación profesional con tecnología híbrida analógico-digital para grabaciones musicales, voice over, locución, doblaje y producción de podcast en un entorno acústicamente optimizado.",
+    "image": "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=800&q=80"
+  },
+  {
+    "id": 4,
+    "name": "Laboratorio de Producción 5.1",
+    "description": "Sala acústicamente calibrada para mezcla multicanal en formatos envolventes. Ofrece posproducción de cine, televisión y videojuegos, incluyendo mezcla de bandas sonoras, grabación de foley y doblaje.",
+    "image": "https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=800&q=80"
+  },
+  {
+    "id": 5,
+    "name": "Laboratorio de Psicometría",
+    "description": "Plataforma especializada en la aplicación, corrección y análisis de pruebas psicométricas para selección de personal, evaluación de competencias, diagnóstico educativo e investigación en entornos organizacionales y clínicos.",
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80"
+  },
+  {
+    "id": 6,
+    "name": "Cámara de Gesell",
+    "description": "Instalación con visibilidad unidireccional para observación y análisis de interacciones. Soporta investigaciones cualitativas, estudios de comportamiento y capacitaciones especializadas con registro audiovisual.",
+    "image": "https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=800&q=80"
+  },
+  {
+    "id": 7,
+    "name": "Laboratorio de Mastering",
+    "description": "Espacio especializado en la optimización final de producciones sonoras. Ofrece ecualización, compresión, secuenciación y normalización para streaming, cine, radio y medios físicos.",
+    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+  },
+  {
+    "id": 8,
+    "name": "Laboratorio de Preproducción",
+    "description": "Zona creativa para conceptualizar y planificar proyectos audiovisuales y musicales, con plugins profesionales para diseño sonoro, edición, procesamiento y premezcla.",
+    "image": "https://images.unsplash.com/photo-1619983081563-430f63602796?w=800&q=80"
+  },
+  {
+    "id": 9,
+    "name": "Laboratorio de Sonido en Vivo",
+    "description": "Ambiente controlado para el montaje y operación de sistemas de refuerzo sonoro. Ofrece pruebas técnicas, diseño de escenarios sonoros y validación de riders técnicos para eventos.",
+    "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80"
+  },
+  {
+    "id": 10,
+    "name": "Laboratorio de Electroacústica",
+    "description": "Espacio con equipos de medición y análisis electrónico: multímetros, fuentes DC, generadores de funciones y osciloscopios para proyectos académicos y desarrollos en electrónica e ingeniería aplicada.",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80"
+  },
+  {
+    "id": 11,
+    "name": "Laboratorio de Ensayos de Materiales Mecánicos",
+    "description": "Infraestructura para la evaluación de resistencia y tracción de materiales, con servicios para empresas de manufactura y construcción bajo normas técnicas nacionales e internacionales.",
+    "image": "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=800&q=80"
+  },
+  {
+    "id": 12,
+    "name": "Laboratorio de Microelectrónica",
+    "description": "Espacio para el diseño y validación de circuitos electrónicos de alta precisión, con servicios de desarrollo de PCB.",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80"
+  },
+  {
+    "id": 13,
+    "name": "Laboratorio de Prototipado",
+    "description": "Centro de desarrollo rápido de productos con capacidad para impresión 3D, orientado a emprendedores, diseñadores y empresas que requieran validar conceptos y optimizar procesos de fabricación.",
+    "image": "https://images.unsplash.com/photo-1631558228003-35b5e62c0cb7?w=800&q=80"
+  },
+  {
+    "id": 14,
+    "name": "Patio Taller (Torno y Fresadora)",
+    "description": "Área equipada para mecanizado de precisión en metales y otros materiales, con servicios de fabricación de piezas personalizadas.",
+    "image": "https://images.unsplash.com/photo-1565087573901-c5f90ef8a28e?w=800&q=80"
+  },
+  {
+    "id": 15,
+    "name": "Laboratorio de Neuropsicología",
+    "description": "Instalación para evaluación, diagnóstico y rehabilitación neurocognitiva. Ofrece estudios de memoria, atención y funciones ejecutivas, con programas de intervención para el sector clínico, educativo y corporativo.",
+    "image": "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&q=80"
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "problem": "Experiencias digitales poco inmersivas",
+    "description": "Muchos productos digitales carecen de profundidad sensorial, lo que limita la conexión emocional con el usuario.",
+    "solution": "ECO - Experiencia interactiva contemplativa",
+    "solutionDescription": "Diseñamos un entorno interactivo basado en física y narrativa ambiental que permite al usuario explorar y restaurar biomas digitales.",
+    "impact": "Aplicado en proyectos educativos y experiencias interactivas que promueven el bienestar y la conexión con el entorno.",
+    "lab": "Game Lab",
+    "category": "Experiencia"
+  },
+  {
+    "id": 2,
+    "problem": "Interfaces complejas que dificultan la navegación",
+    "description": "Muchos sistemas digitales presentan estructuras confusas que generan frustración y abandono.",
+    "solution": "Sistema UX centrado en exploración guiada",
+    "solutionDescription": "Rediseñamos la arquitectura de información y creamos interfaces intuitivas basadas en patrones de interacción naturales.",
+    "impact": "Mejora en la retención de usuarios y reducción en la fricción de uso en plataformas digitales.",
+    "lab": "UX Lab",
+    "category": "UX/UI"
+  },
+  {
+    "id": 3,
+    "problem": "Falta de interacción significativa en aplicaciones web",
+    "description": "Muchas aplicaciones carecen de microinteracciones que guíen y refuercen la experiencia del usuario.",
+    "solution": "Sistema de microinteracciones dinámicas",
+    "solutionDescription": "Implementamos animaciones, feedback visual y transiciones que responden al comportamiento del usuario.",
+    "impact": "Incremento en engagement y percepción de calidad del producto.",
+    "lab": "Frontend Lab",
+    "category": "Web"
+  },
+  {
+    "id": 4,
+    "problem": "Desconexión entre datos y narrativa visual",
+    "description": "Los datos se presentan de forma estática, dificultando su comprensión e interpretación.",
+    "solution": "Visualización interactiva de datos",
+    "solutionDescription": "Creamos sistemas visuales que permiten explorar información de forma dinámica e intuitiva.",
+    "impact": "Mejor toma de decisiones basada en datos y mayor comprensión de la información.",
+    "lab": "Data Lab",
+    "category": "Data"
+  },
+  {
+    "id": 5,
+    "problem": "Falta de identidad en productos digitales",
+    "description": "Muchos proyectos carecen de una identidad clara, lo que afecta su diferenciación en el mercado.",
+    "solution": "Sistema de diseño visual coherente",
+    "solutionDescription": "Desarrollamos sistemas visuales que integran branding, UI y experiencia en un solo lenguaje.",
+    "impact": "Mayor reconocimiento de marca y coherencia en productos digitales.",
+    "lab": "Design Lab",
+    "category": "Branding"
+  },
+  {
+    "id": 6,
+    "problem": "Baja participación del usuario en experiencias digitales",
+    "description": "Los usuarios interactúan de forma pasiva sin involucrarse activamente en el contenido.",
+    "solution": "Gamificación de experiencias",
+    "solutionDescription": "Diseñamos mecánicas de juego que incentivan la participación activa y la exploración.",
+    "impact": "Aumento en retención y engagement en plataformas digitales.",
+    "lab": "Game Lab",
+    "category": "Gamificación"
+  },
+  {
+    "id": 7,
+    "problem": "Procesos digitales poco eficientes",
+    "description": "Flujos complejos que ralentizan la interacción y reducen la productividad.",
+    "solution": "Optimización de flujos UX",
+    "solutionDescription": "Simplificamos procesos mediante automatización y diseño centrado en el usuario.",
+    "impact": "Reducción de tiempos de uso y mejora en eficiencia operativa.",
+    "lab": "UX Lab",
+    "category": "UX/UI"
+  },
+  {
+    "id": 8,
+    "problem": "Experiencias digitales sin adaptabilidad",
+    "description": "Interfaces que no responden adecuadamente a distintos dispositivos o contextos.",
+    "solution": "Diseño responsive avanzado",
+    "solutionDescription": "Creamos sistemas adaptativos que mantienen consistencia en múltiples dispositivos.",
+    "impact": "Mejora en accesibilidad y alcance de usuarios.",
+    "lab": "Frontend Lab",
+    "category": "Web"
+  },
+  {
+    "id": 9,
+    "problem": "Falta de conexión emocional con el usuario",
+    "description": "Experiencias funcionales pero sin impacto emocional.",
+    "solution": "Narrativa interactiva",
+    "solutionDescription": "Integramos storytelling en experiencias digitales para generar conexión emocional.",
+    "impact": "Mayor engagement y recordación de la experiencia.",
+    "lab": "Game Lab",
+    "category": "Narrativa"
+  }
+]
