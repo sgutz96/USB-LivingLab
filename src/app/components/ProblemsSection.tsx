@@ -6,12 +6,19 @@ const problemsData = [
   { id: 2, problem: "Interfaces complejas", category: "UX/UI", importance: 4 },
   { id: 3, problem: "Falta de microinteracciones", category: "Web", importance: 3 },
   { id: 4, problem: "Datos sin narrativa", category: "Data", importance: 2 },
-];
+  { id: 5, problem: "Onboarding confuso", category: "UX/UI", importance: 5 },
+  { id: 6, problem: "Tiempos de carga lentos", category: "Web", importance: 4 },
+  { id: 7, problem: "Visualizaciones estáticas", category: "Data", importance: 3 },
+  { id: 8, problem: "Falta de feedback visual", category: "Experiencia", importance: 4 },
+  { id: 9, problem: "Formularios sin validación", category: "UX/UI", importance: 3 },
+
+
+]
 
 const BASE_RADIUS = 260;
 const CENTER = 300;
 
-const categoryColors: Record<string, string> = {
+const categoryColors = {
   "Experiencia": "var(--color-primary)",
   "UX/UI": "var(--color-accent)",
   "Web": "var(--color-usb-blue-light)",
@@ -19,8 +26,8 @@ const categoryColors: Record<string, string> = {
 };
 
 export const ProblemsSection = () => {
-  const [hovered, setHovered] = useState<number | null>(null);
-  const [active, setActive] = useState<number | null>(null);
+  const [hovered, setHovered] = useState(null);
+  const [active, setActive] = useState(null);
   const [rotation, setRotation] = useState(0);
 
   // 🪐 ROTACIÓN (se pausa en hover)
@@ -35,22 +42,36 @@ export const ProblemsSection = () => {
   }, [hovered]);
 
   return (
-    <section className="py-28 bg-background text-foreground min-h-screen flex flex-col items-center justify-center">
+    <section className="py-32 bg-background text-foreground min-h-screen flex flex-col items-center justify-center">
 
-      {/* 👇 Header */}
-      <div className="text-center mb-14 space-y-3">
-        <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
+      {/* 🔥 HEADER ESTILO HERO */}
+      <div className="text-center mb-24 space-y-6 max-w-2xl">
+
+        {/* Eyebrow */}
+        <div className="inline-block px-4 py-1 rounded-full border border-border text-xs text-muted-foreground tracking-wide">
           Exploración interactiva
-        </p>
+        </div>
 
-        <h2 className="text-2xl font-medium leading-snug">
-          Comprende los problemas<br />
-          <span className="text-muted-foreground">y cómo se transforman en soluciones</span>
+        {/* Headline */}
+        <h2 className="
+          text-4xl md:text-6xl font-medium leading-tight
+          bg-gradient-to-r 
+          from-[var(--color-usb-orange)] 
+          via-[var(--color-accent)] 
+          to-[var(--color-usb-blue-light)]
+          bg-clip-text text-transparent
+        ">
+          Comprende los problemas
+          <br />
+          y cómo se transforman
         </h2>
 
-        <p className="text-sm text-muted-foreground">
-          Pasa el cursor para explorar · Haz click para enfocar
+        {/* Subtexto */}
+        <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+          Explora cómo los desafíos se convierten en oportunidades dentro del sistema.
+          Interactúa para descubrir conexiones y enfoques de solución.
         </p>
+
       </div>
 
       {/* 🌌 Sistema */}
@@ -136,9 +157,7 @@ export const ProblemsSection = () => {
                   transform: "translate(-50%, -50%)",
                   background: color,
                   color: "var(--color-primary-foreground)",
-                  boxShadow: `
-                    0 0 ${8 + item.importance * 10}px ${color}
-                  `,
+                  boxShadow: `0 0 ${8 + item.importance * 10}px ${color}`,
                 }}
               >
                 {item.importance}
@@ -170,17 +189,19 @@ export const ProblemsSection = () => {
       <AnimatePresence>
         {active && (
           <motion.div
-            className="mt-12 text-center max-w-md"
+            className="mt-16 text-center max-w-md"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
           >
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Has enfocado un problema. Este representa un punto clave dentro del sistema que puede transformarse en una solución.
+              Has enfocado un problema. Este representa un punto clave dentro del sistema
+              que puede transformarse en una solución.
             </p>
           </motion.div>
         )}
       </AnimatePresence>
+
     </section>
   );
 };

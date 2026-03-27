@@ -1,6 +1,11 @@
 import { motion } from "motion/react";
 import { useInView } from "react-intersection-observer";
-import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  MessageCircle,
+} from "lucide-react";
 
 export const ContactSection = () => {
   const [ref, inView] = useInView({
@@ -9,8 +14,10 @@ export const ContactSection = () => {
   });
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-background text-foreground">
-      
+    <section
+      id="contact"
+      className="py-24 relative overflow-hidden bg-background text-foreground"
+    >
       {/* 🌈 Background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
@@ -18,7 +25,6 @@ export const ContactSection = () => {
       </div>
 
       <div ref={ref} className="max-w-6xl mx-auto px-6">
-        
         {/* 🧠 HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -34,14 +40,13 @@ export const ContactSection = () => {
           </h2>
 
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            ¿Tienes una idea, proyecto o colaboración en mente?  
+            ¿Tienes una idea, proyecto o colaboración en mente?
             Escríbenos o contáctanos directamente.
           </p>
         </motion.div>
 
         {/* 🧩 GRID */}
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          
           {/* 📬 CONTACT ACTIONS */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -55,7 +60,9 @@ export const ContactSection = () => {
             >
               <Mail className="w-6 h-6 text-primary" />
               <div>
-                <p className="text-sm text-muted-foreground">Email</p>
+                <p className="text-sm text-muted-foreground">
+                  Email
+                </p>
                 <p className="text-foreground group-hover:text-primary transition">
                   correo@email.com
                 </p>
@@ -70,7 +77,9 @@ export const ContactSection = () => {
             >
               <MessageCircle className="w-6 h-6 text-accent" />
               <div>
-                <p className="text-sm text-muted-foreground">WhatsApp</p>
+                <p className="text-sm text-muted-foreground">
+                  WhatsApp
+                </p>
                 <p className="text-foreground group-hover:text-accent transition">
                   +57 300 000 0000
                 </p>
@@ -84,7 +93,9 @@ export const ContactSection = () => {
             >
               <Phone className="w-6 h-6 text-secondary" />
               <div>
-                <p className="text-sm text-muted-foreground">Teléfono</p>
+                <p className="text-sm text-muted-foreground">
+                  Teléfono
+                </p>
                 <p className="text-foreground group-hover:text-secondary transition">
                   +57 300 000 0000
                 </p>
@@ -95,8 +106,12 @@ export const ContactSection = () => {
             <div className="flex items-center gap-4 p-6 rounded-2xl bg-card border border-border backdrop-blur-xl">
               <MapPin className="w-6 h-6 text-primary" />
               <div>
-                <p className="text-sm text-muted-foreground">Ubicación</p>
-                <p className="text-foreground">Bogotá, Colombia</p>
+                <p className="text-sm text-muted-foreground">
+                  Ubicación
+                </p>
+                <p className="text-foreground">
+                  Bogotá, Colombia
+                </p>
               </div>
             </div>
           </motion.div>
