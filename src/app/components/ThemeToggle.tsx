@@ -1,20 +1,18 @@
-import { useState, useEffect } from 'react';
-import { Sun, Moon } from 'lucide-react';
-import { motion } from 'motion/react';
+import { useState, useEffect } from "react";
+import { Sun, Moon } from "lucide-react";
+import { motion } from "motion/react";
 
 export const ThemeToggle = () => {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     const root = document.documentElement;
+    const savedTheme = localStorage.getItem("theme");
 
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    const shouldBeDark = savedTheme ? savedTheme === 'dark' : prefersDark;
+    const shouldBeDark = savedTheme === "dark";
 
     setIsDark(shouldBeDark);
-    root.classList.toggle('dark', shouldBeDark);
+    root.classList.toggle("dark", shouldBeDark);
   }, []);
 
   const toggleTheme = () => {
@@ -22,36 +20,53 @@ export const ThemeToggle = () => {
     const newTheme = !isDark;
 
     setIsDark(newTheme);
-    root.classList.toggle('dark', newTheme);
-    localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+    root.classList.toggle("dark", newTheme);
+    localStorage.setItem("theme", newTheme ? "dark" : "light");
   };
 
   return (
-    <motion.button
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
-      onClick={toggleTheme}
-      className="
-        fixed bottom-8 right-8 z-50 p-4 rounded-full
-        bg-gradient-to-br from-primary to-accent
-        shadow-lg shadow-primary/20
-        hover:shadow-xl hover:shadow-primary/30
-        transition-all backdrop-blur-md
-      "
-      aria-label="Toggle theme"
-    >
-      <motion.div
-        initial={false}
-        animate={{ rotate: isDark ? 0 : 180 }}
-        transition={{ duration: 0.3 }}
-        className="flex items-center justify-center"
+    <div className="fixed bottom-8 right-8 z-50">
+      <motion.button
+        onClick={toggleTheme}
+        whileTap={{ scale: 0.95 }}
+        className="
+          relative w-20 h-10 rounded-full
+          bg-card border border-border
+          flex items-center px-1
+          backdrop-blur-md
+          transition-colors
+        "
+        aria-label="Toggle theme"
       >
-        {isDark ? (
-          <Sun className="w-6 h-6 text-primary-foreground" />
-        ) : (
-          <Moon className="w-6 h-6 text-primary-foreground" />
-        )}
-      </motion.div>
-    </motion.button>
+        {/* 🌗 TRACK ICONS */}
+        <div className="absolute inset-0 flex items-center justify-between px-3 pointer-events-none">
+          <Sun className="w-4 h-4 text-muted-foreground" />
+          <Moon className="w-4 h-4 text-muted-foreground" />
+        </div>
+
+        {/* 🟢 THUMB */}
+        <motion.div
+          layout
+          transition={{ type: "spring", stiffness: 300, damping: 25 }}
+          className="
+            w-8 h-8 rounded-full
+            bg-primary
+            flex items-center justify-center
+            shadow-md
+          "
+          style={{
+            transform: isDark
+              ? "translateX(40px)"
+              : "translateX(0px)",
+          }}
+        >
+          {isDark ? (
+            <Moon className="w-4 h-4 text-primary-foreground" />
+          ) : (
+            <Sun className="w-4 h-4 text-primary-foreground" />
+          )}
+        </motion.div>
+      </motion.button>
+    </div>
   );
 };
