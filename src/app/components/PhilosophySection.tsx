@@ -29,7 +29,117 @@ export const PhilosophySection = () => {
     <section className="py-32 bg-background text-foreground relative overflow-hidden">
       
       {/* 🌌 Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,var(--color-accent)/10,transparent_40%),radial-gradient(circle_at_80%_70%,var(--color-primary)/10,transparent_40%)]" />
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Gradiente base */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,var(--color-accent)/10,transparent_40%),radial-gradient(circle_at_80%_70%,var(--color-primary)/10,transparent_40%)]" />
+
+        {/* Sistema de partículas */}
+        {[...Array(50)].map((_, i) => {
+          const size = Math.random() * 6 + 3;
+          const duration = Math.random() * 20 + 15;
+          const delay = Math.random() * -20;
+          const startX = Math.random() * 100;
+          const startY = Math.random() * 100;
+          const opacity = Math.random() * 0.4 + 0.2;
+          const color = i % 3 === 0 ? 'var(--color-primary)' : i % 3 === 1 ? 'var(--color-accent)' : 'var(--color-usb-blue-light)';
+
+          return (
+            <motion.div
+              key={i}
+              className="absolute rounded-full"
+              style={{
+                width: size,
+                height: size,
+                left: `${startX}%`,
+                top: `${startY}%`,
+                background: color,
+                boxShadow: `0 0 ${size * 3}px ${color}`,
+              }}
+              animate={{
+                x: [0, Math.random() * 100 - 50, Math.random() * 100 - 50, 0],
+                y: [0, Math.random() * 100 - 50, Math.random() * 100 - 50, 0],
+                opacity: [opacity, opacity * 0.5, opacity * 0.8, opacity],
+                scale: [1, 1.5, 0.8, 1],
+              }}
+              transition={{
+                duration,
+                delay,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          );
+        })}
+
+        {/* Partículas conectadas - líneas sutiles */}
+        {[...Array(8)].map((_, i) => {
+          const duration = Math.random() * 15 + 10;
+          const delay = Math.random() * -15;
+          const startX = Math.random() * 100;
+          const startY = Math.random() * 100;
+          const rotation = Math.random() * 360;
+
+          return (
+            <motion.div
+              key={`line-${i}`}
+              className="absolute h-px"
+              style={{
+                width: Math.random() * 100 + 50,
+                left: `${startX}%`,
+                top: `${startY}%`,
+                background: `linear-gradient(90deg, transparent, var(--color-accent)/20, transparent)`,
+                transformOrigin: "left center",
+                rotate: rotation,
+              }}
+              animate={{
+                opacity: [0, 0.4, 0],
+                scaleX: [0, 1, 0],
+              }}
+              transition={{
+                duration,
+                delay,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          );
+        })}
+
+        {/* Orbes flotantes grandes */}
+        {[...Array(3)].map((_, i) => {
+          const size = Math.random() * 200 + 150;
+          const duration = Math.random() * 25 + 20;
+          const delay = Math.random() * -25;
+          const startX = i * 40;
+          const startY = i * 30;
+          const color = i === 0 ? 'var(--color-primary)' : i === 1 ? 'var(--color-accent)' : 'var(--color-usb-blue-light)';
+
+          return (
+            <motion.div
+              key={`orb-${i}`}
+              className="absolute rounded-full blur-3xl"
+              style={{
+                width: size,
+                height: size,
+                left: `${startX}%`,
+                top: `${startY}%`,
+                background: `radial-gradient(circle, ${color}/15, transparent 70%)`,
+              }}
+              animate={{
+                x: [0, Math.random() * 200 - 100, 0],
+                y: [0, Math.random() * 200 - 100, 0],
+                scale: [1, 1.3, 1],
+              }}
+              transition={{
+                duration,
+                delay,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          );
+        })}
+      </div>
 
       <div
         ref={ref}

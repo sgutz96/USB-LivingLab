@@ -57,17 +57,30 @@ export const Navbar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-3"
           >
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xl">
-                L
+            {/* Logo en modo claro */}
+            <img
+              src="/src/imports/Logo-Color.png"
+              alt="Live Room - Universidad de San Buenaventura"
+              className="h-12 w-auto object-contain dark:hidden"
+            />
+
+            {/* Logo en modo oscuro */}
+            <img
+              src="/src/imports/Logo-Claro.png"
+              alt="Live Room - Universidad de San Buenaventura"
+              className="h-12 w-auto object-contain hidden dark:block"
+            />
+
+            <div className="flex flex-col leading-tight">
+              <span className="text-lg font-bold text-foreground">
+                Live Room
+              </span>
+              <span className="text-[10px] text-muted-foreground tracking-wider uppercase">
+                Laboratorio
               </span>
             </div>
-
-            <span className="text-xl font-bold text-foreground">
-              Labs
-            </span>
           </motion.div>
 
           {/* 🖥️ DESKTOP NAV */}

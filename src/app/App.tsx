@@ -20,8 +20,13 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Set dark mode by default
-    document.documentElement.classList.add('dark');
+    // Set light mode by default
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
 
     // Simulate loading
     const timer = setTimeout(() => {

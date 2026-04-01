@@ -3,24 +3,20 @@ import { Sun, Moon } from "lucide-react";
 import { motion } from "motion/react";
 
 export const ThemeToggle = () => {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window === "undefined") return false;
+    const savedTheme = localStorage.getItem("theme");
+    return savedTheme === "dark";
+  });
 
   useEffect(() => {
     const root = document.documentElement;
-    const savedTheme = localStorage.getItem("theme");
-
-    const shouldBeDark = savedTheme === "dark";
-
-    setIsDark(shouldBeDark);
-    root.classList.toggle("dark", shouldBeDark);
-  }, []);
+    root.classList.toggle("dark", isDark);
+  }, [isDark]);
 
   const toggleTheme = () => {
-    const root = document.documentElement;
     const newTheme = !isDark;
-
     setIsDark(newTheme);
-    root.classList.toggle("dark", newTheme);
     localStorage.setItem("theme", newTheme ? "dark" : "light");
   };
 
@@ -34,19 +30,17 @@ export const ThemeToggle = () => {
           bg-card border border-border
           flex items-center px-1
           backdrop-blur-md
-          transition-colors
         "
-        aria-label="Toggle theme"
       >
-        {/* 🌗 TRACK ICONS */}
+        {/* 🌗 ICONOS FONDO */}
         <div className="absolute inset-0 flex items-center justify-between px-3 pointer-events-none">
           <Sun className="w-4 h-4 text-muted-foreground" />
           <Moon className="w-4 h-4 text-muted-foreground" />
         </div>
 
-        {/* 🟢 THUMB */}
+        {/* 🟢 THUMB REAL */}
         <motion.div
-          layout
+          animate={{ x: isDark ? 40 : 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 25 }}
           className="
             w-8 h-8 rounded-full
@@ -54,11 +48,6 @@ export const ThemeToggle = () => {
             flex items-center justify-center
             shadow-md
           "
-          style={{
-            transform: isDark
-              ? "translateX(40px)"
-              : "translateX(0px)",
-          }}
         >
           {isDark ? (
             <Moon className="w-4 h-4 text-primary-foreground" />

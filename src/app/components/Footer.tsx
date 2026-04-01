@@ -23,12 +23,28 @@ export const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#F2911B] to-[#04BFBF] flex items-center justify-center">
-                <span className="text-white font-bold text-xl">L</span>
-              </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-[#F2911B] to-[#04BFBF] bg-clip-text text-transparent">
-                Labs
+              {/* Logo en modo claro */}
+            <img
+              src="/src/imports/Logo-Color.png"
+              alt="Live Room - Universidad de San Buenaventura"
+              className="h-12 w-auto object-contain dark:hidden"
+            />
+
+            {/* Logo en modo oscuro */}
+            <img
+              src="/src/imports/Logo-Claro.png"
+              alt="Live Room - Universidad de San Buenaventura"
+              className="h-12 w-auto object-contain hidden dark:block"
+            />
+
+            <div className="flex flex-col leading-tight">
+              <span className="text-lg font-bold text-foreground">
+                Live Room
               </span>
+              <span className="text-[10px] text-muted-foreground tracking-wider uppercase">
+                Laboratorio
+              </span>
+            </div>
             </div>
             <p className="text-sm text-foreground/70 mb-6 max-w-sm">
               Pioneering innovation through cutting-edge research and development. Building tomorrow's solutions today.
