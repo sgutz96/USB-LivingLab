@@ -1,5 +1,8 @@
 import { Github, Twitter, Linkedin, Youtube, Mail } from 'lucide-react';
 
+import logoColor from "../../imports/Logo-Color.png";
+import logoClaro from "../../imports/Logo-Claro.png";
+
 const socialLinks = [
   { name: 'GitHub', icon: Github, href: '#' },
   { name: 'Twitter', icon: Twitter, href: '#' },
@@ -25,14 +28,14 @@ export const Footer = () => {
             <div className="flex items-center space-x-2 mb-4">
               {/* Logo en modo claro */}
             <img
-              src="/src/imports/Logo-Color.png"
+              src={logoColor}
               alt="Live Room - Universidad de San Buenaventura"
               className="h-12 w-auto object-contain dark:hidden"
             />
 
             {/* Logo en modo oscuro */}
             <img
-              src="/src/imports/Logo-Claro.png"
+              src={logoClaro}
               alt="Live Room - Universidad de San Buenaventura"
               className="h-12 w-auto object-contain hidden dark:block"
             />

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion } from 'motion/react';
+import logoColor from "../../imports/Logo-Color.png";
+import logoClaro from "../../imports/Logo-Claro.png";
 
 const navLinks = [
   { name: 'About', href: '#about' },
@@ -61,14 +63,14 @@ export const Navbar = () => {
           >
             {/* Logo en modo claro */}
             <img
-              src="/src/imports/Logo-Color.png"
+              src={logoColor}
               alt="Live Room - Universidad de San Buenaventura"
               className="h-12 w-auto object-contain dark:hidden"
             />
 
             {/* Logo en modo oscuro */}
             <img
-              src="/src/imports/Logo-Claro.png"
+              src={logoClaro}
               alt="Live Room - Universidad de San Buenaventura"
               className="h-12 w-auto object-contain hidden dark:block"
             />
