@@ -41,7 +41,11 @@ export const ThemeToggle = () => {
         {/* 🟢 THUMB REAL */}
         <motion.div
           animate={{ x: isDark ? 40 : 0 }}
-          transition={{ type: "spring", stiffness: 300, damping: 25 }}
+          transition={{
+            type: "spring",
+            stiffness: 300,
+            damping: 25,
+          }}
           className="
             w-8 h-8 rounded-full
             bg-primary

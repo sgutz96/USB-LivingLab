@@ -16,14 +16,15 @@ export const LabsSection = () => {
   const filteredLabs = labsData.filter((lab) =>
     `${lab.name} ${lab.description}`
       .toLowerCase()
-      .includes(search.toLowerCase())
+      .includes(search.toLowerCase()),
   );
 
-  const visibleLabs = showAll ? filteredLabs : filteredLabs.slice(0, 6);
+  const visibleLabs = showAll
+    ? filteredLabs
+    : filteredLabs.slice(0, 6);
 
   return (
     <section id="labs" className="py-24 relative bg-background">
-      
       {/* 🌈 Background */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-accent/5 to-transparent" />
 
@@ -67,7 +68,8 @@ export const LabsSection = () => {
 
           {/* 📊 CONTADOR */}
           <p className="text-sm text-muted-foreground/70 mt-4">
-            Mostrando {visibleLabs.length} de {filteredLabs.length} laboratorios
+            Mostrando {visibleLabs.length} de{" "}
+            {filteredLabs.length} laboratorios
           </p>
         </motion.div>
 
@@ -78,7 +80,10 @@ export const LabsSection = () => {
               key={lab.id}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.05,
+              }}
               className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-accent/50 transition-all hover:shadow-lg"
             >
               {/* Imagen */}
@@ -118,7 +123,9 @@ export const LabsSection = () => {
               onClick={() => setShowAll(!showAll)}
               className="px-8 py-4 rounded-full border border-border bg-transparent hover:bg-muted transition"
             >
-              {showAll ? "Ver menos" : "Ver todos los laboratorios"}
+              {showAll
+                ? "Ver menos"
+                : "Ver todos los laboratorios"}
             </button>
           </div>
         )}

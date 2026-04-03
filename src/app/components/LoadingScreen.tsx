@@ -18,7 +18,11 @@ export const LoadingScreen = () => {
             className="absolute w-px h-full bg-primary"
             style={{ left: `${(i / 20) * 100}%` }}
             animate={{ opacity: [0.2, 0.6, 0.2] }}
-            transition={{ duration: 3, repeat: Infinity, delay: i * 0.1 }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              delay: i * 0.1,
+            }}
           />
         ))}
       </div>
@@ -27,22 +31,28 @@ export const LoadingScreen = () => {
       <div className="absolute w-[500px] h-[500px] bg-primary/20 blur-[120px] rounded-full" />
 
       <div className="flex flex-col items-center gap-12 relative z-10">
-
         {/* 🧬 SISTEMA CENTRAL */}
         <div className="relative w-64 h-64 flex items-center justify-center">
-
           {/* ORBITA SUAVE */}
           <motion.div
             className="absolute w-full h-full rounded-full border border-border"
             animate={{ rotate: 360 }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear",
+            }}
           />
 
           {/* ORBITA SECUNDARIA */}
           <motion.div
             className="absolute w-40 h-40 rounded-full border border-accent/30"
             animate={{ rotate: -360 }}
-            transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              ease: "linear",
+            }}
           />
 
           {/* PARTÍCULAS CONTROLADAS */}
@@ -108,12 +118,13 @@ export const LoadingScreen = () => {
 
         {/* 🧠 TEXTO */}
         <div className="text-center space-y-3">
-
-          <h2 className="
+          <h2
+            className="
             text-2xl font-semibold
             bg-gradient-to-r from-primary to-accent
             bg-clip-text text-transparent
-          ">
+          "
+          >
             Inicializando sistema
           </h2>
 

@@ -1,40 +1,44 @@
-import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import { motion } from 'motion/react';
+import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
+import { motion } from "motion/react";
 import logoColor from "../../imports/Logo-Color.png";
 import logoClaro from "../../imports/Logo-Claro.png";
 
 const navLinks = [
-  { name: 'About', href: '#about' },
-  { name: 'Labs', href: '#labs' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Problems', href: '#problems' },
-  { name: 'Contact', href: '#contact' },
+  { name: "About", href: "#about" },
+  { name: "Labs", href: "#labs" },
+  { name: "Projects", href: "#projects" },
+  { name: "Problems", href: "#problems" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] =
+    useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () =>
+      window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
       const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      const elementPosition =
+        element.getBoundingClientRect().top;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - offset;
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
 
       setIsMobileMenuOpen(false);
@@ -47,13 +51,12 @@ export const Navbar = () => {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-background/80 backdrop-blur-xl border-b border-border shadow-lg'
-          : 'bg-transparent'
+          ? "bg-background/80 backdrop-blur-xl border-b border-border shadow-lg"
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          
           {/* 🧬 LOGO */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -64,20 +67,20 @@ export const Navbar = () => {
             {/* Logo en modo claro */}
             <img
               src={logoColor}
-              alt="Live Room - Universidad de San Buenaventura"
+              alt="USB-LivingLab - Universidad de San Buenaventura"
               className="h-12 w-auto object-contain dark:hidden"
             />
 
             {/* Logo en modo oscuro */}
             <img
               src={logoClaro}
-              alt="Live Room - Universidad de San Buenaventura"
+              alt="USB-LivingLab - Universidad de San Buenaventura"
               className="h-12 w-auto object-contain hidden dark:block"
             />
 
             <div className="flex flex-col leading-tight">
               <span className="text-lg font-bold text-foreground">
-                Live Room
+                USB-LivingLab
               </span>
               <span className="text-[10px] text-muted-foreground tracking-wider uppercase">
                 Laboratorio
@@ -106,10 +109,16 @@ export const Navbar = () => {
 
           {/* 📱 MOBILE BUTTON */}
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={() =>
+              setIsMobileMenuOpen(!isMobileMenuOpen)
+            }
             className="md:hidden p-2 text-muted-foreground hover:text-primary transition-colors"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? (
+              <X size={24} />
+            ) : (
+              <Menu size={24} />
+            )}
           </button>
         </div>
 
@@ -117,7 +126,7 @@ export const Navbar = () => {
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden py-4 border-t border-border"
           >

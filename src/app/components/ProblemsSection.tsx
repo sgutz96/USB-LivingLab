@@ -2,25 +2,79 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
 const problemsData = [
-  { id: 1, problem: "Experiencias poco inmersivas", solution: "Narrativa + interacción + feedback visual", category: "Experiencia", importance: 5 },
-  { id: 2, problem: "Interfaces complejas", solution: "Simplificación + jerarquía + patrones UX", category: "UX/UI", importance: 4 },
-  { id: 3, problem: "Falta de microinteracciones", solution: "Animaciones funcionales y feedback", category: "Web", importance: 3 },
-  { id: 4, problem: "Datos sin narrativa", solution: "Storytelling + visualización", category: "Data", importance: 2 },
-  { id: 5, problem: "Onboarding confuso", solution: "Flujos guiados + progresión", category: "UX/UI", importance: 5 },
-  { id: 6, problem: "Tiempos de carga lentos", solution: "Optimización + lazy loading", category: "Web", importance: 4 },
-  { id: 7, problem: "Visualizaciones estáticas", solution: "Data interactiva", category: "Data", importance: 3 },
-  { id: 8, problem: "Falta de feedback visual", solution: "Estados + microinteracciones", category: "Experiencia", importance: 4 },
-  { id: 9, problem: "Formularios sin validación", solution: "Validación en tiempo real", category: "UX/UI", importance: 3 },
+  {
+    id: 1,
+    problem: "Experiencias poco inmersivas",
+    solution: "Narrativa + interacción + feedback visual",
+    category: "Experiencia",
+    importance: 5,
+  },
+  {
+    id: 2,
+    problem: "Interfaces complejas",
+    solution: "Simplificación + jerarquía + patrones UX",
+    category: "UX/UI",
+    importance: 4,
+  },
+  {
+    id: 3,
+    problem: "Falta de microinteracciones",
+    solution: "Animaciones funcionales y feedback",
+    category: "Web",
+    importance: 3,
+  },
+  {
+    id: 4,
+    problem: "Datos sin narrativa",
+    solution: "Storytelling + visualización",
+    category: "Data",
+    importance: 2,
+  },
+  {
+    id: 5,
+    problem: "Onboarding confuso",
+    solution: "Flujos guiados + progresión",
+    category: "UX/UI",
+    importance: 5,
+  },
+  {
+    id: 6,
+    problem: "Tiempos de carga lentos",
+    solution: "Optimización + lazy loading",
+    category: "Web",
+    importance: 4,
+  },
+  {
+    id: 7,
+    problem: "Visualizaciones estáticas",
+    solution: "Data interactiva",
+    category: "Data",
+    importance: 3,
+  },
+  {
+    id: 8,
+    problem: "Falta de feedback visual",
+    solution: "Estados + microinteracciones",
+    category: "Experiencia",
+    importance: 4,
+  },
+  {
+    id: 9,
+    problem: "Formularios sin validación",
+    solution: "Validación en tiempo real",
+    category: "UX/UI",
+    importance: 3,
+  },
 ];
 
 const CENTER = 260;
 const BASE_RADIUS = 200;
 
 const categoryColors = {
-  "Experiencia": "var(--color-primary)",
+  Experiencia: "var(--color-primary)",
   "UX/UI": "var(--color-accent)",
-  "Web": "var(--color-usb-blue-light)",
-  "Data": "var(--color-chart-2)",
+  Web: "var(--color-usb-blue-light)",
+  Data: "var(--color-chart-2)",
 };
 
 export const ProblemsSection = () => {
@@ -32,41 +86,41 @@ export const ProblemsSection = () => {
     if (active) return;
 
     const loop = setInterval(() => {
-      setRotation(r => r + 0.002);
+      setRotation((r) => r + 0.002);
     }, 16);
 
     return () => clearInterval(loop);
   }, [active]);
 
-  const activeItem = problemsData.find(p => p.id === active);
+  const activeItem = problemsData.find((p) => p.id === active);
 
   return (
     <section className="py-32 bg-background relative overflow-hidden">
-
       {/* 🌫️ BACKGROUND SUTIL */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,var(--color-primary)/5,transparent_60%)]" />
 
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
-
         {/* 🧠 IZQUIERDA — NARRATIVA */}
         <div className="relative">
-
           <span className="text-xs tracking-[0.3em] text-accent uppercase">
             System intelligence
           </span>
 
-          <h2 className="
+          <h2
+            className="
             mt-6 text-5xl sm:text-6xl font-semibold leading-[1.1]
             bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent
-          ">
+          "
+          >
             Transformamos problemas
             <br />
             en sistemas funcionales
           </h2>
 
           <p className="mt-6 text-muted-foreground max-w-lg">
-            Cada punto dentro del sistema representa un desafío. Al interactuar, 
-            se revela cómo se convierte en una solución aplicable.
+            Cada punto dentro del sistema representa un desafío.
+            Al interactuar, se revela cómo se convierte en una
+            solución aplicable.
           </p>
 
           {/* 🎯 CONTENIDO DINÁMICO */}
@@ -100,14 +154,12 @@ export const ProblemsSection = () => {
               </motion.div>
             )}
           </AnimatePresence>
-
         </div>
 
         {/* 🌌 DERECHA — SISTEMA */}
         <div className="relative w-[520px] h-[520px] mx-auto">
-
           {/* Anillos */}
-          {[180, 120, 60].map(r => (
+          {[180, 120, 60].map((r) => (
             <div
               key={r}
               className="absolute rounded-full border border-border/20"
@@ -132,13 +184,12 @@ export const ProblemsSection = () => {
             animate={{
               scale: active ? 1.15 : 1,
             }}
-          >
-            
-          </motion.div>
+          ></motion.div>
 
           {/* 🔵 NODOS */}
           {problemsData.map((item, index) => {
-            const baseAngle = (index / problemsData.length) * Math.PI * 2;
+            const baseAngle =
+              (index / problemsData.length) * Math.PI * 2;
             const angle = baseAngle + rotation;
 
             let radius = BASE_RADIUS - item.importance * 20;
@@ -186,7 +237,11 @@ export const ProblemsSection = () => {
 
                 {/* Nodo */}
                 <motion.button
-                  onClick={() => setActive(item.id === active ? null : item.id)}
+                  onClick={() =>
+                    setActive(
+                      item.id === active ? null : item.id,
+                    )
+                  }
                   whileHover={{ scale: 1.15 }}
                   className="rounded-full flex items-center justify-center text-xs font-semibold"
                   style={{
@@ -220,7 +275,6 @@ export const ProblemsSection = () => {
             );
           })}
         </div>
-
       </div>
     </section>
   );

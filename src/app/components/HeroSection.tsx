@@ -44,7 +44,9 @@ export const HeroSection = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
 
   const prevSlide = () =>
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setCurrentSlide(
+      (prev) => (prev - 1 + slides.length) % slides.length,
+    );
 
   return (
     <section
@@ -77,7 +79,6 @@ export const HeroSection = () => {
       {/* 🧊 CONTENIDO */}
       <div className="relative z-10 max-w-4xl w-full px-6 text-center">
         <div className="bg-card/40 backdrop-blur-xl border border-border rounded-3xl p-10 shadow-xl">
-
           {/* 🧠 TEXTO */}
           <AnimatePresence mode="wait">
             <motion.div

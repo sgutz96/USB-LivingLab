@@ -1,20 +1,36 @@
-import { Github, Twitter, Linkedin, Youtube, Mail } from 'lucide-react';
+import {
+  Github,
+  Twitter,
+  Linkedin,
+  Youtube,
+  Mail,
+} from "lucide-react";
 
 import logoColor from "../../imports/Logo-Color.png";
 import logoClaro from "../../imports/Logo-Claro.png";
 
 const socialLinks = [
-  { name: 'GitHub', icon: Github, href: '#' },
-  { name: 'Twitter', icon: Twitter, href: '#' },
-  { name: 'LinkedIn', icon: Linkedin, href: '#' },
-  { name: 'YouTube', icon: Youtube, href: '#' },
-  { name: 'Email', icon: Mail, href: '#' },
+  { name: "GitHub", icon: Github, href: "#" },
+  { name: "Twitter", icon: Twitter, href: "#" },
+  { name: "LinkedIn", icon: Linkedin, href: "#" },
+  { name: "YouTube", icon: Youtube, href: "#" },
+  { name: "Email", icon: Mail, href: "#" },
 ];
 
 const footerLinks = {
-  Company: ['About', 'Careers', 'Press', 'Blog'],
-  Resources: ['Documentation', 'Research Papers', 'Case Studies', 'Newsletter'],
-  Legal: ['Privacy Policy', 'Terms of Service', 'Cookie Policy', 'Licenses'],
+  Company: ["About", "Careers", "Press", "Blog"],
+  Resources: [
+    "Documentation",
+    "Research Papers",
+    "Case Studies",
+    "Newsletter",
+  ],
+  Legal: [
+    "Privacy Policy",
+    "Terms of Service",
+    "Cookie Policy",
+    "Licenses",
+  ],
 };
 
 export const Footer = () => {
@@ -27,30 +43,32 @@ export const Footer = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               {/* Logo en modo claro */}
-            <img
-              src={logoColor}
-              alt="Live Room - Universidad de San Buenaventura"
-              className="h-12 w-auto object-contain dark:hidden"
-            />
+              <img
+                src={logoColor}
+                alt="USB-LivingLab - Universidad de San Buenaventura"
+                className="h-12 w-auto object-contain dark:hidden"
+              />
 
-            {/* Logo en modo oscuro */}
-            <img
-              src={logoClaro}
-              alt="Live Room - Universidad de San Buenaventura"
-              className="h-12 w-auto object-contain hidden dark:block"
-            />
+              {/* Logo en modo oscuro */}
+              <img
+                src={logoClaro}
+                alt="USB-LivingLab - Universidad de San Buenaventura"
+                className="h-12 w-auto object-contain hidden dark:block"
+              />
 
-            <div className="flex flex-col leading-tight">
-              <span className="text-lg font-bold text-foreground">
-                Live Room
-              </span>
-              <span className="text-[10px] text-muted-foreground tracking-wider uppercase">
-                Laboratorio
-              </span>
-            </div>
+              <div className="flex flex-col leading-tight">
+                <span className="text-lg font-bold text-foreground">
+                  USB-LivingLab
+                </span>
+                <span className="text-[10px] text-muted-foreground tracking-wider uppercase">
+                  Laboratorio
+                </span>
+              </div>
             </div>
             <p className="text-sm text-foreground/70 mb-6 max-w-sm">
-              Pioneering innovation through cutting-edge research and development. Building tomorrow's solutions today.
+              Pioneering innovation through cutting-edge
+              research and development. Building tomorrow's
+              solutions today.
             </p>
             {/* Social Links */}
             <div className="flex gap-3">
@@ -68,35 +86,44 @@ export const Footer = () => {
           </div>
 
           {/* Footer Links */}
-          {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category}>
-              <h3 className="font-semibold mb-4 text-foreground">{category}</h3>
-              <ul className="space-y-2">
-                {links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="text-sm text-foreground/70 hover:text-[#04BFBF] transition-colors"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {Object.entries(footerLinks).map(
+            ([category, links]) => (
+              <div key={category}>
+                <h3 className="font-semibold mb-4 text-foreground">
+                  {category}
+                </h3>
+                <ul className="space-y-2">
+                  {links.map((link) => (
+                    <li key={link}>
+                      <a
+                        href="#"
+                        className="text-sm text-foreground/70 hover:text-[#04BFBF] transition-colors"
+                      >
+                        {link}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ),
+          )}
         </div>
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-sm text-foreground/60">
-              © {new Date().getFullYear()} Labs. All rights reserved.
+              © {new Date().getFullYear()} USB-LivingLab. All rights
+              reserved.
             </p>
             <div className="flex gap-1 items-center">
-              <span className="text-sm text-foreground/60">Built with</span>
+              <span className="text-sm text-foreground/60">
+                Built with
+              </span>
               <span className="text-red-500 mx-1">♥</span>
-              <span className="text-sm text-foreground/60">using React & TailwindCSS</span>
+              <span className="text-sm text-foreground/60">
+                using React & TailwindCSS
+              </span>
             </div>
           </div>
         </div>

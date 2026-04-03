@@ -27,7 +27,6 @@ export const PhilosophySection = () => {
 
   return (
     <section className="py-32 bg-background text-foreground relative overflow-hidden">
-      
       {/* 🌌 Background glow */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Gradiente base */}
@@ -41,7 +40,12 @@ export const PhilosophySection = () => {
           const startX = Math.random() * 100;
           const startY = Math.random() * 100;
           const opacity = Math.random() * 0.4 + 0.2;
-          const color = i % 3 === 0 ? 'var(--color-primary)' : i % 3 === 1 ? 'var(--color-accent)' : 'var(--color-usb-blue-light)';
+          const color =
+            i % 3 === 0
+              ? "var(--color-primary)"
+              : i % 3 === 1
+                ? "var(--color-accent)"
+                : "var(--color-usb-blue-light)";
 
           return (
             <motion.div
@@ -56,9 +60,24 @@ export const PhilosophySection = () => {
                 boxShadow: `0 0 ${size * 3}px ${color}`,
               }}
               animate={{
-                x: [0, Math.random() * 100 - 50, Math.random() * 100 - 50, 0],
-                y: [0, Math.random() * 100 - 50, Math.random() * 100 - 50, 0],
-                opacity: [opacity, opacity * 0.5, opacity * 0.8, opacity],
+                x: [
+                  0,
+                  Math.random() * 100 - 50,
+                  Math.random() * 100 - 50,
+                  0,
+                ],
+                y: [
+                  0,
+                  Math.random() * 100 - 50,
+                  Math.random() * 100 - 50,
+                  0,
+                ],
+                opacity: [
+                  opacity,
+                  opacity * 0.5,
+                  opacity * 0.8,
+                  opacity,
+                ],
                 scale: [1, 1.5, 0.8, 1],
               }}
               transition={{
@@ -112,7 +131,12 @@ export const PhilosophySection = () => {
           const delay = Math.random() * -25;
           const startX = i * 40;
           const startY = i * 30;
-          const color = i === 0 ? 'var(--color-primary)' : i === 1 ? 'var(--color-accent)' : 'var(--color-usb-blue-light)';
+          const color =
+            i === 0
+              ? "var(--color-primary)"
+              : i === 1
+                ? "var(--color-accent)"
+                : "var(--color-usb-blue-light)";
 
           return (
             <motion.div
@@ -145,7 +169,6 @@ export const PhilosophySection = () => {
         ref={ref}
         className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center"
       >
-
         {/* 🧠 IZQUIERDA */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
@@ -166,21 +189,29 @@ export const PhilosophySection = () => {
           </h2>
 
           <p className="mt-8 text-muted-foreground leading-relaxed max-w-xl">
-            <span className="text-foreground font-semibold">Live Room</span> no es un aula.
-            Es un organismo vivo que respira con cada proyecto, falla con cada
-            experimento y aprende con cada iteración.
+            <span className="text-foreground font-semibold">
+              USB-LivingLab
+            </span>{" "}
+            no es un aula. Es un organismo vivo que respira con
+            cada proyecto, falla con cada experimento y aprende
+            con cada iteración.
           </p>
 
           <p className="mt-6 text-muted-foreground/70 leading-relaxed max-w-xl">
-            Aquí, la disciplina se convierte en conversación. El error en
-            <span className="text-foreground"> método</span>. La incertidumbre en
-            <span className="text-foreground"> motor de creación</span>.
+            Aquí, la disciplina se convierte en conversación. El
+            error en
+            <span className="text-foreground"> método</span>. La
+            incertidumbre en
+            <span className="text-foreground">
+              {" "}
+              motor de creación
+            </span>
+            .
           </p>
         </motion.div>
 
         {/* 🧩 DERECHA */}
         <div className="relative">
-
           {/* Línea */}
           <div className="absolute left-6 top-0 h-full w-px bg-border" />
 
@@ -200,7 +231,6 @@ export const PhilosophySection = () => {
 
                 {/* Card */}
                 <div className="flex-1 p-6 rounded-xl bg-card/40 border border-border backdrop-blur-md hover:border-accent/40 transition-all">
-                  
                   <span className="text-xs text-muted-foreground">
                     {item.number}
                   </span>

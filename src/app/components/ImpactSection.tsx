@@ -23,7 +23,6 @@ export const ImpactSection = () => {
 
   return (
     <section className="py-32 bg-background text-foreground relative overflow-hidden">
-      
       {/* 🌈 Background dinámico */}
       <motion.div
         key={current.image}
@@ -42,7 +41,6 @@ export const ImpactSection = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--accent)/0.08),transparent_40%),radial-gradient(circle_at_80%_70%,hsl(var(--primary)/0.08),transparent_40%)]" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-
         {/* 🧠 HEADER */}
         <div className="mb-20 max-w-3xl">
           <span className="text-xs tracking-[0.3em] text-accent uppercase">
@@ -60,7 +58,6 @@ export const ImpactSection = () => {
 
         {/* 🧩 CONTENT */}
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-
           {/* 🧠 INFO */}
           <motion.div
             key={current.id}
@@ -69,7 +66,6 @@ export const ImpactSection = () => {
             transition={{ duration: 0.5 }}
           >
             <div className="flex items-center gap-4 mb-6">
-              
               <span className="px-4 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/20">
                 {current.ods}
               </span>
@@ -127,7 +123,9 @@ export const ImpactSection = () => {
 
                 {/* TEXT */}
                 <div className="absolute bottom-4 left-4">
-                  <p className="text-xs text-muted-foreground">{item.ods}</p>
+                  <p className="text-xs text-muted-foreground">
+                    {item.ods}
+                  </p>
                   <h4 className="font-semibold text-foreground">
                     {item.title}
                   </h4>

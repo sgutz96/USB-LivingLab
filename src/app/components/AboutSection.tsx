@@ -60,7 +60,10 @@ export const AboutSection = () => {
           </h2>
 
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            We are a collective of researchers, engineers, and innovators dedicated to pushing the boundaries of what's possible through cutting-edge technology and collaborative research.
+            We are a collective of researchers, engineers, and
+            innovators dedicated to pushing the boundaries of
+            what's possible through cutting-edge technology and
+            collaborative research.
           </p>
         </motion.div>
 
@@ -77,11 +80,16 @@ export const AboutSection = () => {
             </h3>
 
             <p className="text-muted-foreground mb-4 leading-relaxed">
-              Since our inception, we've been at the forefront of technological advancement, bridging the gap between theoretical research and practical applications.
+              Since our inception, we've been at the forefront
+              of technological advancement, bridging the gap
+              between theoretical research and practical
+              applications.
             </p>
 
             <p className="text-muted-foreground leading-relaxed">
-              We collaborate with leading institutions, industry partners, and communities worldwide to ensure our innovations create meaningful, lasting impact.
+              We collaborate with leading institutions, industry
+              partners, and communities worldwide to ensure our
+              innovations create meaningful, lasting impact.
             </p>
           </motion.div>
 
@@ -108,7 +116,6 @@ export const AboutSection = () => {
 
         {/* 🌌 FEATURES HÍBRIDO */}
         <div className="relative mt-10 rounded-3xl overflow-hidden border border-border">
-
           {/* Imagen suave */}
           <img
             src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?q=80&w=1200"
@@ -128,7 +135,10 @@ export const AboutSection = () => {
                 key={feature.title}
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.2 + index * 0.1,
+                }}
                 className="group relative p-8 rounded-2xl bg-background/80 backdrop-blur border border-border hover:border-accent/60 hover:shadow-lg transition-all duration-300"
               >
                 {/* Glow */}
@@ -151,7 +161,6 @@ export const AboutSection = () => {
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );

@@ -2,9 +2,17 @@ import { useRef } from "react";
 import { motion } from "motion/react";
 import { useInView } from "react-intersection-observer";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import {
+  Navigation,
+  Pagination,
+  Autoplay,
+} from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
-import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  ExternalLink,
+} from "lucide-react";
 import projectsData from "../../data/projects.json";
 
 import "swiper/css";
@@ -24,13 +32,125 @@ export const ProjectsSection = () => {
       id="projects"
       className="py-24 relative overflow-hidden bg-background"
     >
-      {/* 🌈 Background */}
-      <div className="absolute inset-0 -z-10">
+      {/* 🌈 Background con sistema de partículas */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        {/* Gradientes base */}
         <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
         <div className="absolute top-1/2 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
+
+        {/* Partículas flotantes */}
+        {[...Array(35)].map((_, i) => {
+          const size = Math.random() * 4 + 2;
+          const duration = Math.random() * 18 + 12;
+          const delay = Math.random() * -18;
+          const startX = Math.random() * 100;
+          const startY = Math.random() * 100;
+          const opacity = Math.random() * 0.5 + 0.2;
+          const color = i % 3 === 0 ? 'var(--color-primary)' : i % 3 === 1 ? 'var(--color-accent)' : 'var(--color-usb-blue-light)';
+
+          return (
+            <motion.div
+              key={`particle-${i}`}
+              className="absolute rounded-full"
+              style={{
+                width: size,
+                height: size,
+                left: `${startX}%`,
+                top: `${startY}%`,
+                background: color,
+                boxShadow: `0 0 ${size * 2}px ${color}`,
+              }}
+              animate={{
+                x: [0, Math.random() * 80 - 40, Math.random() * 80 - 40, 0],
+                y: [0, Math.random() * 80 - 40, Math.random() * 80 - 40, 0],
+                opacity: [opacity, opacity * 0.4, opacity * 0.7, opacity],
+                scale: [1, 1.4, 0.9, 1],
+              }}
+              transition={{
+                duration,
+                delay,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          );
+        })}
+
+        {/* Líneas conectivas */}
+        {[...Array(6)].map((_, i) => {
+          const duration = Math.random() * 12 + 8;
+          const delay = Math.random() * -12;
+          const startX = Math.random() * 100;
+          const startY = Math.random() * 100;
+          const rotation = Math.random() * 360;
+
+          return (
+            <motion.div
+              key={`line-${i}`}
+              className="absolute h-px"
+              style={{
+                width: Math.random() * 120 + 60,
+                left: `${startX}%`,
+                top: `${startY}%`,
+                background: `linear-gradient(90deg, transparent, var(--color-primary)/15, transparent)`,
+                transformOrigin: "left center",
+                rotate: rotation,
+              }}
+              animate={{
+                opacity: [0, 0.3, 0],
+                scaleX: [0, 1, 0],
+              }}
+              transition={{
+                duration,
+                delay,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          );
+        })}
+
+        {/* Orbes de luz grandes */}
+        {[...Array(4)].map((_, i) => {
+          const size = Math.random() * 180 + 120;
+          const duration = Math.random() * 22 + 18;
+          const delay = Math.random() * -22;
+          const startX = i * 30 + 10;
+          const startY = i * 25;
+          const color = i % 2 === 0 ? 'var(--color-primary)' : 'var(--color-accent)';
+
+          return (
+            <motion.div
+              key={`orb-${i}`}
+              className="absolute rounded-full blur-3xl"
+              style={{
+                width: size,
+                height: size,
+                left: `${startX}%`,
+                top: `${startY}%`,
+                background: `radial-gradient(circle, ${color}/12, transparent 70%)`,
+              }}
+              animate={{
+                x: [0, Math.random() * 150 - 75, 0],
+                y: [0, Math.random() * 150 - 75, 0],
+                scale: [1, 1.25, 1],
+                opacity: [0.4, 0.7, 0.4],
+              }}
+              transition={{
+                duration,
+                delay,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          );
+        })}
       </div>
 
-      <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        ref={ref}
+        className="container mx-auto px-4 sm:px-6 lg:px-8"
+      >
         {/* 🧠 HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -47,8 +167,8 @@ export const ProjectsSection = () => {
           </h2>
 
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Discover our most impactful projects transforming industries and
-            solving global challenges
+            Discover our most impactful projects transforming
+            industries and solving global challenges
           </p>
         </motion.div>
 
@@ -70,7 +190,8 @@ export const ProjectsSection = () => {
             }}
             pagination={{
               clickable: true,
-              bulletActiveClass: "swiper-pagination-bullet-active",
+              bulletActiveClass:
+                "swiper-pagination-bullet-active",
             }}
             breakpoints={{
               640: { slidesPerView: 2 },
@@ -81,7 +202,6 @@ export const ProjectsSection = () => {
             {projectsData.map((project) => (
               <SwiperSlide key={project.id}>
                 <div className="group relative h-[420px] rounded-2xl overflow-hidden border border-border bg-card">
-
                   {/* 🖼️ IMAGE BACKGROUND */}
                   <img
                     src={project.image}
