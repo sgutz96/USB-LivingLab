@@ -102,7 +102,7 @@ export const AboutSection = () => {
           >
             <div className="relative rounded-2xl overflow-hidden aspect-square">
               <img
-                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80"
+                src="https://res.cloudinary.com/djv69tuej/image/upload/f_auto,q_auto/sedes-bogota_mc2xeo"
                 alt="Innovation and Technology"
                 className="w-full h-full object-cover"
               />
